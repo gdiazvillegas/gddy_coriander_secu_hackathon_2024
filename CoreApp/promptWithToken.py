@@ -76,7 +76,7 @@ Example (wrapped in triple apostrohpes):
 \'\'\'
 
 Use this framework to conduct a thorough security review of the app code, ensuring all potential vulnerabilities are identified and addressed in the specified JSON format.
-
+The next lines are the code to review.
 '''
 
 def extract_message(response):
