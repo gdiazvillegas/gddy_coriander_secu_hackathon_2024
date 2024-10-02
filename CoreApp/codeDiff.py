@@ -53,7 +53,7 @@ def format_diff(diff_output):
             formatted_output += f"# {file_name}: {total_changes} change{'s' if total_changes > 1 else ''}\n"
             formatted_output += '\n'.join(added_lines) + '\n\n'
     print("**************")
-    print("formatted_output.strip()")
+    print(formatted_output.strip())
     print("**************")
     return formatted_output.strip()
 
