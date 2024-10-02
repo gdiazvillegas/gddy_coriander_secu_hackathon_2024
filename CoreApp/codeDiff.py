@@ -35,7 +35,7 @@ def get_git_diff(repo_path, commit1, commit2):
         return f"An error occurred while running git diff: {e.stderr}"
 
 def format_diff(diff_output):
-    files = re.split(r'diff --git', diff_output)[1:]  # Split by file, ignore the first empty part
+    files = result.split(r'diff --git', diff_output)[1:]  # Split by file, ignore the first empty part
     formatted_output = ""
 
     for file_diff in files:
