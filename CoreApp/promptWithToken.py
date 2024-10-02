@@ -77,7 +77,6 @@ Example (wrapped in triple apostrohpes):
 
 Use this framework to conduct a thorough security review of the app code, ensuring all potential vulnerabilities are identified and addressed in the specified JSON format.
 
-Use this framework to conduct a thorough security review of the app code, ensuring all potential vulnerabilities are identified and addressed in the specified JSON format.
 '''
 
 def extract_message(response):
