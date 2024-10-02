@@ -92,6 +92,9 @@ def extract_message(response):
 
     try:
         data = json.loads(response)
+        print("===...===...===...===...===...===...===...===...")
+        print(data)
+        print("===...===...===...===...===...===...===...===...")
         return data['data']['value']
     except json.JSONDecodeError as e:
         print(f"Error: Invalid JSON response: {e}")
