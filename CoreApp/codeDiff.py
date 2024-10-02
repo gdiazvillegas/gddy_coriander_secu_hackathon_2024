@@ -48,11 +48,13 @@ def format_diff(diff_output):
         # Extract added lines and count total changes
         added_lines = [line[1:] for line in lines[diff_start:] if line.startswith('+') and not line.startswith('+++')]
         total_changes = sum(1 for line in lines[diff_start:] if line.startswith(('+', '-')) and not line.startswith(('+++ b', '--- a')))
-        
+        print(f"total_changes{total_changes}")
         if added_lines:
             formatted_output += f"# {file_name}: {total_changes} change{'s' if total_changes > 1 else ''}\n"
             formatted_output += '\n'.join(added_lines) + '\n\n'
-
+    print("**************")
+    print("formatted_output.strip()")
+    print("**************")
     return formatted_output.strip()
 
 if __name__ == "__main__":
