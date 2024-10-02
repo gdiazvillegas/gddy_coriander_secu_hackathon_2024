@@ -38,7 +38,7 @@ Output Format:
 
 Please provide your findings in a JSON file with the following structure (wrapped in triple apostrohpes):
 
-'''
+\'\'\'
 [
   {
     "title": "Brief title of the vulnerability",
@@ -58,11 +58,11 @@ Please provide your findings in a JSON file with the following structure (wrappe
   }
   // ... Continue for each vulnerability found
 ]
-'''
+\'\'\'
 
 Example (wrapped in triple apostrohpes):
 
-'''
+\'\'\'
 [
   {
     "title": "Hardcoded API Key Found in Source Code",
@@ -73,10 +73,11 @@ Example (wrapped in triple apostrohpes):
     "severity_level": "High"
   }
 ]
-'''
+\'\'\'
 
 Use this framework to conduct a thorough security review of the app code, ensuring all potential vulnerabilities are identified and addressed in the specified JSON format.
 
+Use this framework to conduct a thorough security review of the app code, ensuring all potential vulnerabilities are identified and addressed in the specified JSON format.
 '''
 
 def extract_message(response):
