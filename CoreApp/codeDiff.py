@@ -56,3 +56,5 @@ pr_head_sha = sys.argv[2]
 repo_path = os.getcwd()
 diff = get_git_diff(repo_path, pr_base_sha, pr_head_sha)
 diff_result = format_diff(diff)
+with open('diff_result.txt', 'w') as f:
+    f.write(str(diff_result))
