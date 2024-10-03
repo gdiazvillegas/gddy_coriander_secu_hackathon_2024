@@ -1,7 +1,5 @@
-import json
 import subprocess
 import os
-import re
 import sys
 
 def check_commit_exists(repo_path, commit):
