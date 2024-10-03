@@ -125,5 +125,38 @@ response = requests.post(url, headers=headers, json=data)
 json_message = f"{response.text}"
 message = extract_message(json_message)
 print(message)
+
+# Regular expressions to extract relevant information (adjust as needed)
+step_pattern = r"Step: (.+)"
+status_pattern = r"Status: (.+)"
+
+# Parse the output
+steps = []
+for line in message.splitlines():
+    step_match = re.match(step_pattern, line)
+    status_match = re.match(status_pattern, line)
+    if step_match:
+        step = step_match.group(1)
+        steps.append({"step": step})
+    elif status_match and steps:
+        steps[-1]["status"] = status_match.group(1)
+
+# Format the extracted data into a Markdown table
+markdown_output = "| Step | Status |\n|---|---|"
+for step in steps:
+    markdown_output += f"\n| {step['step']} | {step['status']} |"
+
+print("%%%%%%%%%%%%%")
+print(markdown_output)
+print("%%%%%%%%%%%%%")
 with open('coriander_report_file.txt', 'w') as f:
-    f.write(str(message))
+    f.write(str(markdown_output))
+
+
+
+
+
+
+
+
+
