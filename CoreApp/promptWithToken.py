@@ -89,9 +89,6 @@ def extract_message(response):
 
     try:
         data = json.loads(response)
-        print("===...===...===...===...===...===...===...===...")
-        print(data)
-        print("===...===...===...===...===...===...===...===...")
         return data['data']['value']
     except json.JSONDecodeError as e:
         print(f"Error: Invalid JSON response: {e}")
@@ -101,9 +98,6 @@ def extract_message(response):
 token =f"eyJhbGciOiAiUlMyNTYiLCAia2lkIjogIm5jZ1FmdFpJWncifQ.eyJhdXRoIjogImJhc2ljIiwgImZ0YyI6IDIsICJpYXQiOiAxNzI3OTY3Njc0LCAianRpIjogIktyX3J1MllxSDJsd0tiSVZQTkgyWVEiLCAidHlwIjogImpvbWF4IiwgInZhdCI6IDE3Mjc5Njc2NzQsICJmYWN0b3JzIjogeyJrX2ZlZCI6IDE3Mjc5Njc2NzQsICJwX29rdGEiOiAxNzI3OTY3Njc0fSwgImN0eCI6ICIiLCAiYWNjb3VudE5hbWUiOiAiZ2RpYXp2aWxsZWdhcyIsICJzdWIiOiAiNDM4MzQwIiwgInV0eXAiOiAxMDF9.Up28oAzgU73clTvxOlCssi-ri0iEDAU0jjyGMESfWc9CkZQSZ0WVzhFcwnOFopXivV8BbE6CL86MkH6wDmkKrbOy2cDWOCTS5aTRjhhoPJNilcIR3J2XVTmETSrb37hxnh011Grm-UuqBEfJQp_kH2NdFw-93LI_-XGOd3GUbA8MaudrtwSA6U2LRDMhKqgP0Z8aElCU-DOxgTSPBlm4IEBJPF45FZh-fK6zr9eD3djJqnXFqo8-oKJOwXv5tUo34dwA8Lahi5RJUqaA2kbvHZozpXmbE7ytVIIhXi_O0z-svAwZ08NxR8SyeU5KaMJV1OKhOu_PX_NZxBIoz5iVSQ"
 with open('diff_result.txt', 'r') as f:
     diff_result = f.read()
-print("==========================================================diff_result")
-print(diff_result)
-print("==========================================================diff_result")
 url = 'https://caas.api.godaddy.com/v1/prompts'
 headers = {
     'Authorization': f"sso-jwt {token}",
@@ -122,4 +116,3 @@ response = requests.post(url, headers=headers, json=data)
 json_message = f"{response.text}"
 message = extract_message(json_message)
 print(message)
-print(requests.__version__)
