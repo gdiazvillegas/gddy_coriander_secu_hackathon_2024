@@ -2,6 +2,7 @@ import json
 import subprocess
 import os
 import re
+import sys
 
 def check_commit_exists(repo_path, commit):
     try:
@@ -57,13 +58,16 @@ print("#####")
 print(dict(os.environ))
 print("#####......")
 print(os.getenv('GITHUB_ENV'))
-pr_base_sha = ""#${{ env.BASE_SHA }}
+pr_base_sha = sys.argv[1]
+pr_head_sha = sys.argv[2]
+repo_path = os.getcwd()
+#pr_base_sha = ""#${{ env.BASE_SHA }}
 #$BASE_SHA#github_context['event']['pull_request']['base']['sha']#os.environ['BASE_SHA']
-pr_head_sha = ""#${{ env.HEAD_SHA}}
+#pr_head_sha = ""#${{ env.HEAD_SHA}}
 #$HEAD_SHA#github_context['event']['pull_request']['head']['sha']#os.environ['HEAD_SHA']
 
 #repo_path = os.environ['GITHUB_WORKSPACE']
-repo_path = "GITHUB_WORKSPACE"
+#repo_path = "GITHUB_WORKSPACE"
 print("33333334333333333333333")
 print(f": repo_path: {repo_path}")
 print(f"pr_base_sha: {pr_base_sha}")
