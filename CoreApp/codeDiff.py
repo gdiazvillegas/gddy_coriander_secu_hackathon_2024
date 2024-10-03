@@ -17,10 +17,10 @@ def get_git_diff(repo_path, commit1, commit2):
         return f"Error: The specified repository path does not exist: {repo_path}"
     if not os.path.exists(os.path.join(repo_path, '.git')):
         return f"Error: The specified path is not a git repository: {repo_path}"
-    if not check_commit_exists(repo_path, commit1):
-        return f"Error: Commit not found: {commit1}"
-    if not check_commit_exists(repo_path, commit2):
-        return f"Error: Commit not found: {commit2}"
+    #if not check_commit_exists(repo_path, commit1):
+    #    return f"Error: Commit not found: {commit1}"
+    #if not check_commit_exists(repo_path, commit2):
+    #    return f"Error: Commit not found: {commit2}"
     try:
         result = subprocess.run(['git', '-C', repo_path, 'diff', commit1, commit2], 
                                 capture_output=True, 
