@@ -53,43 +53,15 @@ def format_diff(diff_output):
     return formatted_output.strip()
 
 # Get the PR base and head SHAs
-#github_context = json.loads(os.environ['GITHUB_CONTEXT'])
-print("#####")
-print(dict(os.environ))
-print("#####......")
-try:
-    print("#####......1")
-    print(os.getenv('GITHUB_ENV'))    
-except e:
-    print(e)
-try:
-    print("#####......2")
-    print(os.getenv('GITHUB_OUTPUT'))    
-except e:
-    print(e)
-try:
-    print("#####......3")
-    print(sys.argv)    
-except e:
-    print(e)
-#pr_base_sha = sys.argv[0]
-#pr_head_sha = sys.argv[1]
-#repo_path = os.getcwd()
-#pr_base_sha = ""#${{ env.BASE_SHA }}
-#$BASE_SHA#github_context['event']['pull_request']['base']['sha']#os.environ['BASE_SHA']
-#pr_head_sha = ""#${{ env.HEAD_SHA}}
-#$HEAD_SHA#github_context['event']['pull_request']['head']['sha']#os.environ['HEAD_SHA']
-
-#repo_path = os.environ['GITHUB_WORKSPACE']
-#repo_path = "GITHUB_WORKSPACE"
-print("33333334333333333333333")
-#print(f": repo_path: {repo_path}")
-#print(f"pr_base_sha: {pr_base_sha}")
-#print(f": pr_head_sha{pr_head_sha}")
-print("33333334333333333333333")
-#diff = get_git_diff(repo_path, pr_base_sha, pr_head_sha)
+pr_base_sha = sys.argv[0]
+pr_head_sha = sys.argv[1]
+repo_path = os.getcwd()
+print(f"repo_path: {repo_path}")
+print(f"pr_base_sha: {pr_base_sha}")
+print(f"pr_head_sha: {pr_head_sha}")
+diff = get_git_diff(repo_path, pr_base_sha, pr_head_sha)
 print("222222")
-#print(f"diff: {diff}")
+print(f"diff: {diff}")
 print("222222")
-#formatted_diff = format_diff(diff)
-#print(formatted_diff)
+formatted_diff = format_diff(diff)
+print(formatted_diff)
