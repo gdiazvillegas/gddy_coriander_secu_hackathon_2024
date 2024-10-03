@@ -55,4 +55,4 @@ pr_base_sha = sys.argv[1]
 pr_head_sha = sys.argv[2]
 repo_path = os.getcwd()
 diff = get_git_diff(repo_path, pr_base_sha, pr_head_sha)
-formatted_diff = format_diff(diff)
+diff_result = format_diff(diff)
