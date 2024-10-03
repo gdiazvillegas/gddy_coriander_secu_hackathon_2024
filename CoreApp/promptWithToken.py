@@ -33,101 +33,47 @@ Output Format:
 
 Output Format:
 
-Please provide your findings in a html file with the following structure (wrapped in triple apostrohpes):
+Please provide your findings in a JSON file with the following structure (wrapped in triple apostrohpes):
 
 '''
-<table>
-    <thead>
-        <tr>
-            <th>Title</th>
-            <th>Description</th>
-            <th>Location</th>
-            <th>Impact</th>
-            <th>Recommendation</th>
-            <th>Severity Level</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Brief title of the vulnerability</td>
-            <td>Detailed explanation of the issue.</td>
-            <td>File names and line numbers where the issue is found.</td>
-            <td>Potential consequences if the vulnerability is exploited.</td>
-            <td>Recommendations of how to write safer code.</td>
-            <td class="severity-critical/severity-high/severity-medium/severity-low">Critical/High/Medium/Low</td>
-        </tr>
-        <tr>
-            <td>Next vulnerability title</td>
-            <td>Detailed explanation of the next issue.</td>
-            <td>File names and line numbers where the next issue is found.</td>
-            <td>Potential consequences if the vulnerability is exploited.</td>
-            <td>Steps or code changes required to fix the next issue.</td>
-            <td class="severity-critical/severity-high/severity-medium/severity-low">Critical/High/Medium/Low</td>
-        </tr>
-        // ... Continue for each vulnerability found
-    </tbody>
-</table>
+{"coriander_status": "failed",
+"findings":
+[
+  {
+    "title": "Brief title of the vulnerability",
+    "description": "Detailed explanation of the issue.",
+    "location": "File names and line numbers where the issue is found.",
+    "impact": "Potential consequences if the vulnerability is exploited.",
+    "recommendation": "Steps or code changes required to fix the issue.",
+    "severity_level": "Critical/High/Medium/Low"
+  },
+  {
+    "title": "Next vulnerability title",
+    "description": "Detailed explanation of the next issue.",
+    "location": "File names and line numbers where the next issue is found.",
+    "impact": "Potential consequences if the next vulnerability is exploited.",
+    "recommendation": "Steps or code changes required to fix the next issue.",
+    "severity_level": "Critical/High/Medium/Low"
+  }
+  // ... Continue for each vulnerability found
+]}
 '''
-Include the below .css for the severity level in the above .html code.
-'''
-"coriander_status": "failed"
-.severity-critical {
-    background-color: red;
-    color: white;
-}
-
-.severity-high {
-    background-color: orange;
-    color: black;
-}
-
-.severity-medium {
-    background-color: yellow;
-    color: black;
-}
-
-.severity-low {
-    background-color: green;
-    color: white;
-}
-'''
-
 
 Example (wrapped in triple apostrohpes):
 
 '''
-"coriander_status": "failed"
-<table>
-    <thead>
-        <tr>
-            <th>Title</th>
-            <th>Description</th>
-            <th>Location</th>
-            <th>Impact</th>
-            <th>Recommendation</th>
-            <th>Severity Level</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Hardcoded API Key Found in Source Code</td>
-            <td>An API key for the payment gateway is hardcoded in 'PaymentProcessor.java' at line 45.</td>
-            <td>/app/src/main/java/com/example/payment/PaymentProcessor.java:45</td>
-            <td>Potential consequences if the vulnerability is exploited.</td>
-            <td>Remove the hardcoded API key and store it securely using Android's Keystore system or fetch it securely from a remote server after authentication.</td>
-            <td class="severity-critical/severity-high/severity-medium/severity-low">Critical/High/Medium/Low</td>
-        </tr>
-        <tr>
-            <td>Next vulnerability title</td>
-            <td>Detailed explanation of the next issue.</td>
-            <td>File names and line numbers where the next issue is found.</td>
-            <td>Attackers with access to the APK can decompile it to retrieve the API key, leading to unauthorized transactions.</td>
-            <td>Steps or code changes required to fix the next issue.</td>
-            <td class="severity-critical/severity-high/severity-medium/severity-low">Critical/High/Medium/Low</td>
-        </tr>
-        // ... Continue for each vulnerability found
-    </tbody>
-</table>
+{"coriander_status": "failed",
+"findings":
+[
+  {
+    "title": "Hardcoded API Key Found in Source Code",
+    "description": "An API key for the payment gateway is hardcoded in 'PaymentProcessor.java' at line 45.",
+    "location": "/app/src/main/java/com/example/payment/PaymentProcessor.java:45",
+    "impact": "Attackers with access to the APK can decompile it to retrieve the API key, leading to unauthorized transactions.",
+    "recommendation": "Remove the hardcoded API key and store it securely using Android's Keystore system or fetch it securely from a remote server after authentication.",
+    "severity_level": "High"
+  }
+]}
 '''
 
 Use this framework to conduct a thorough security review of the app code, ensuring all potential vulnerabilities are identified and addressed in the specified JSON format.
@@ -179,15 +125,5 @@ response = requests.post(url, headers=headers, json=data)
 json_message = f"{response.text}"
 message = extract_message(json_message)
 print(message)
-
 with open('coriander_report_file.txt', 'w') as f:
     f.write(str(message))
-
-
-
-
-
-
-
-
-
