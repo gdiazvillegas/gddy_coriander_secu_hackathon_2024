@@ -54,10 +54,11 @@ def format_diff(diff_output):
 # Get the PR base and head SHAs
 #github_context = json.loads(os.environ['GITHUB_CONTEXT'])
 print(dict(os.environ))
-pr_base_sha = ""#github_context['event']['pull_request']['base']['sha']#os.environ['BASE_SHA']
-pr_head_sha = ""#github_context['event']['pull_request']['head']['sha']#os.environ['HEAD_SHA']
+pr_base_sha = $BASE_SHA#github_context['event']['pull_request']['base']['sha']#os.environ['BASE_SHA']
+pr_head_sha = $HEAD_SHA#github_context['event']['pull_request']['head']['sha']#os.environ['HEAD_SHA']
 
-repo_path = os.environ['GITHUB_WORKSPACE']
+#repo_path = os.environ['GITHUB_WORKSPACE']
+repo_path = "GITHUB_WORKSPACE"
 print("33333334333333333333333")
 print(f": repo_path: {repo_path}")
 print(f"pr_base_sha: {pr_base_sha}")
