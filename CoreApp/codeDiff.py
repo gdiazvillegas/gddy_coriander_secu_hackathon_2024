@@ -55,8 +55,14 @@ pr_base_sha = os.environ['GITHUB_BASE_REF']
 pr_head_sha = os.environ['GITHUB_HEAD_REF']
 
 repo_path = os.environ['GITHUB_WORKSPACE']
-
+print("33333334333333333333333")
+print(f": repo_path: {repo_path}")
+print(f"pr_base_sha: {pr_base_sha}")
+print(f": pr_head_sha{pr_head_sha}")
+print("33333334333333333333333")
 diff = get_git_diff(repo_path, pr_base_sha, pr_head_sha)
+print("222222")
+print(f"diff: {diff}")
+print("222222")
 formatted_diff = format_diff(diff)
 print(formatted_diff)
-EOF
