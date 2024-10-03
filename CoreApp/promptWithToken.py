@@ -2,8 +2,6 @@ import json
 import subprocess
 import requests
 
-from codeDiff import diff_result
-
 prompt = """
 As a mobile security expert, please perform a comprehensive security analysis of the provided Android/iOS app code. Your analysis should focus on identifying potential security vulnerabilities, including but not limited to:
 
@@ -101,6 +99,8 @@ def extract_message(response):
 
 # The token should be the last non-empty line
 token =f"eyJhbGciOiAiUlMyNTYiLCAia2lkIjogIm5jZ1FmdFpJWncifQ.eyJhdXRoIjogImJhc2ljIiwgImZ0YyI6IDIsICJpYXQiOiAxNzI3ODI0NTEwLCAianRpIjogIm9IRVhRTmJ6SXNSRnpDdjMyRV91SHciLCAidHlwIjogImpvbWF4IiwgInZhdCI6IDE3Mjc4MjQ1MTAsICJmYWN0b3JzIjogeyJrX2ZlZCI6IDE3Mjc4MjQ1MTAsICJwX29rdGEiOiAxNzI3ODI0NTEwfSwgImN0eCI6ICIiLCAiYWNjb3VudE5hbWUiOiAiZ2RpYXp2aWxsZWdhcyIsICJzdWIiOiAiNDM4MzQwIiwgInV0eXAiOiAxMDF9.MXEjyo17HeeEdCwPoz-q9S6hlxxkK7971Gsjz5lYzKshFpkfIvt9JarCiDkmZfb8jowvgeGTkcBfJnKpqktP1dP6OKRP_0wcj0wONzwLFFB76Md6ulaTLbsObLwvOlPmGc6dPK1deCWGuJZqlUd3jGHoG_VlCMkwE9rKeA3EOG3e8L0JKiIUk8e10Loj4sb6r7cbHQEZ5PuEQSG9uzFNzJZcXbNQIElXki5A7aAMnU3VHws-VzkBi26q53mVpU0BGL1UDmk7HUKY22RrUpoABJydVWcTW1wHCMBurCL0vRi9CGMmMsvjAgKyrBFP00CLZ5yxS2mVqnozeIIwqi_OzQ"
+with open('diff_result.txt', 'r') as f:
+    diff_result = f.read()
 print("==========================================================diff_result")
 print(diff_result)
 print("==========================================================diff_result")
