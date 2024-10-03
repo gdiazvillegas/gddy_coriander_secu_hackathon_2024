@@ -6,8 +6,8 @@ import sys
 
 def check_commit_exists(repo_path, commit):
     try:
-        subprocess.run(['git', '-C', repo_path, 'cat-file', '-e', commit],
-                       check=True, capture_output=True)
+        result = subprocess.run(['git', '-C', repo_path, 'rev-parse', '--verify', commit],
+                                check=True, capture_output=True, text=True)
         return True
     except subprocess.CalledProcessError:
         return False
