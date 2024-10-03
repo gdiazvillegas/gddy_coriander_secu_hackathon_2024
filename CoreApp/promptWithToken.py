@@ -37,7 +37,7 @@ Output Format:
 Please provide your findings in a JSON file with the following structure (wrapped in triple apostrohpes):
 
 '''
-{"status": "ok",
+{"coriander_status": "failed",
 "findings":
 [
   {
@@ -63,7 +63,7 @@ Please provide your findings in a JSON file with the following structure (wrappe
 Example (wrapped in triple apostrohpes):
 
 '''
-{"status": "ok",
+{"coriander_status": "failed",
 "findings":
 [
   {
@@ -80,7 +80,7 @@ Example (wrapped in triple apostrohpes):
 Use this framework to conduct a thorough security review of the app code, ensuring all potential vulnerabilities are identified and addressed in the specified JSON format.
 If there are not any threads or security issues then output must a json with the next format.
 '''
-{"status": "ok"}
+{"coriander_status": "passed"}
 '''
 
 The next lines are the code to review.
