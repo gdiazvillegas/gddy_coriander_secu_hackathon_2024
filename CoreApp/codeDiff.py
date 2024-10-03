@@ -1,3 +1,4 @@
+import json
 import subprocess
 import os
 import re
@@ -51,6 +52,7 @@ def format_diff(diff_output):
     return formatted_output.strip()
 
 # Get the PR base and head SHAs
+github_context = json.loads(os.environ['GITHUB_CONTEXT'])
 pr_base_sha = github_context['event']['pull_request']['base']['sha']#os.environ['BASE_SHA']
 pr_head_sha = github_context['event']['pull_request']['head']['sha']#os.environ['HEAD_SHA']
 
