@@ -58,8 +58,8 @@ print("#####")
 print(dict(os.environ))
 print("#####......")
 print(os.getenv('GITHUB_ENV'))
-pr_base_sha = sys.argv[1]
-pr_head_sha = sys.argv[2]
+pr_base_sha = sys.argv[0]
+pr_head_sha = sys.argv[1]
 repo_path = os.getcwd()
 #pr_base_sha = ""#${{ env.BASE_SHA }}
 #$BASE_SHA#github_context['event']['pull_request']['base']['sha']#os.environ['BASE_SHA']
