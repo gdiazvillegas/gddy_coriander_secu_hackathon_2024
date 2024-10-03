@@ -53,8 +53,8 @@ def format_diff(diff_output):
     return formatted_output.strip()
 
 # Get the PR base and head SHAs
-pr_base_sha = sys.argv[0]
-pr_head_sha = sys.argv[1]
+pr_base_sha = sys.argv[1]
+pr_head_sha = sys.argv[2]
 repo_path = os.getcwd()
 print(f"repo_path: {repo_path}")
 print(f"pr_base_sha: {pr_base_sha}")
