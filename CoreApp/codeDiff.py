@@ -51,8 +51,8 @@ def format_diff(diff_output):
     return formatted_output.strip()
 
 # Get the PR base and head SHAs
-pr_base_sha = os.environ['GITHUB_BASE_REF']
-pr_head_sha = os.environ['GITHUB_HEAD_REF']
+pr_base_sha = os.environ['GITHUB_EVENT_PULL_REQUEST_BASE_SHA']
+pr_head_sha = os.environ['GITHUB_SHA']
 
 repo_path = os.environ['GITHUB_WORKSPACE']
 print("33333334333333333333333")
