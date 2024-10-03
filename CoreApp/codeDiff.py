@@ -47,21 +47,12 @@ def format_diff(diff_output):
         if added_lines:
             formatted_output += f"# {file_name}: {total_changes} change{'s' if total_changes > 1 else ''}\n"
             formatted_output += '\n'.join(added_lines) + '\n\n'
-    print("???????????????")
-    print(formatted_output.strip())
-    print("???????????????")
+    
     return formatted_output.strip()
 
 # Get the PR base and head SHAs
 pr_base_sha = sys.argv[1]
 pr_head_sha = sys.argv[2]
 repo_path = os.getcwd()
-print(f"repo_path: {repo_path}")
-print(f"pr_base_sha: {pr_base_sha}")
-print(f"pr_head_sha: {pr_head_sha}")
 diff = get_git_diff(repo_path, pr_base_sha, pr_head_sha)
-print("222222")
-print(f"diff: {diff}")
-print("222222")
 formatted_diff = format_diff(diff)
-print(formatted_diff)
