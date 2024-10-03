@@ -56,9 +56,9 @@ def format_diff(diff_output):
 print("#####")
 print(dict(os.environ))
 print("#####......")
-pr_base_sha = ${{BASE_SHA}}
+pr_base_sha = ${{ env.BASE_SHA }}
 #$BASE_SHA#github_context['event']['pull_request']['base']['sha']#os.environ['BASE_SHA']
-pr_head_sha = ${{HEAD_SHA}
+pr_head_sha = ${{ env.HEAD_SHA}
 }#$HEAD_SHA#github_context['event']['pull_request']['head']['sha']#os.environ['HEAD_SHA']
 
 #repo_path = os.environ['GITHUB_WORKSPACE']
