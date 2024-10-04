@@ -17,7 +17,7 @@ jobs:
       - name: Checkout external repository
         uses: actions/checkout@v3
         with:
-          repository: mruizgdd/gddy_coriander_secu_hackathon_2024
+          repository: gdiazvillegas/gddy_coriander_secu_hackathon_2024
           path: coriander
           ref: feature/table-version
           token: ${{secrets.CORIANDER_TOKEN}}
